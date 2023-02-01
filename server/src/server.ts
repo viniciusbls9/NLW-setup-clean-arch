@@ -1,4 +1,4 @@
-import FastifyAdapter from './infra/api/FastifyAdapter';
+import FastifyAdapter from 'infra/api/adapters/FastifyAdapter/FastifyAdapter';
 import Router from './infra/api/Router';
 
 const httpServer = new FastifyAdapter();
