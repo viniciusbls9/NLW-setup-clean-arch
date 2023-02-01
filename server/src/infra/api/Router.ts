@@ -4,7 +4,7 @@ export default class Router {
   constructor(readonly httpServer: HttpServer) { }
 
   async init() {
-    this.httpServer.on('get', '/hello', () => {
+    this.httpServer.on('get', '/', () => {
       return 'Hello NLW';
     });
   }
