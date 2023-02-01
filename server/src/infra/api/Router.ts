@@ -1,4 +1,4 @@
-import HttpServer from './HttpServer';
+import HttpServer from 'infra/api/http/HttpServer';
 
 export default class Router {
   constructor(readonly httpServer: HttpServer) { }

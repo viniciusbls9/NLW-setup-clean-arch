@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import Fastify from 'fastify';
-import HttpServer from './HttpServer';
+import HttpServer from 'infra/api/http/HttpServer';
 
 export default class ExpressAdapter implements HttpServer {
   app: any;
