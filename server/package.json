@@ -8,6 +8,9 @@
     "test": "vitest",
     "coverage": "vitest run --coverage"
   },
+  "prisma": {
+    "schema": "src/infra/externals/prisma/schema.prisma"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
