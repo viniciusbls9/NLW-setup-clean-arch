@@ -2,7 +2,7 @@
 import Fastify from 'fastify';
 import HttpServer from 'infra/api/http/HttpServer';
 
-export default class ExpressAdapter implements HttpServer {
+export default class FastifyAdapter implements HttpServer {
   app: any;
 
   constructor() {
