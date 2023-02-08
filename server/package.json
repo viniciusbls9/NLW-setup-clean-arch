@@ -9,19 +9,22 @@
     "coverage": "vitest run --coverage"
   },
   "prisma": {
-    "schema": "src/infra/externals/prisma/schema.prisma"
+    "schema": "src/infra/externals/prisma/schema.prisma",
+    "seed": "tsx src/infra/externals/prisma/seed.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@fastify/cors": "^8.2.0",
-    "@prisma/client": "^4.9.0",
+    "@prisma/client": "^4.8.1",
     "axios": "^1.3.0",
     "fastify": "^4.12.0"
   },
   "devDependencies": {
-    "prisma": "^4.9.0",
+    "@mermaid-js/mermaid-cli": "^9.3.0",
+    "prisma": "^4.8.1",
+    "prisma-erd-generator": "^1.2.5",
     "tsx": "^3.12.2",
     "typescript": "^4.9.4",
     "vitest": "^0.28.3"
