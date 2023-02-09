@@ -1,4 +1,5 @@
 import { HabitsRepository } from "domain/repositories/HabitsRepository";
+import { CreateHabitDTO } from "useCases/CreateHabit/CreateHabitDTO";
 
 export const mockHabits = [
   {
@@ -17,6 +18,15 @@ export default class HabitsMemoryRepository implements HabitsRepository {
 
   constructor() {
     this.habits = mockHabits;
+  }
+
+  async create({ title, weekDays }: CreateHabitDTO): Promise<string> {
+    this.habits.push({
+      title,
+      weekDays
+    })
+
+    return 'Great! Habit created with success'
   }
 
   async findAll(): Promise<any[]> {
