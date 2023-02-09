@@ -10,4 +10,12 @@ describe('Habits Repository test', () => {
         
         expect(findAllHabits).toEqual(output)
     })
+    
+    test('should call create method and create new habits', async () => {
+        const createMemoryHabit = new HabitsMemoryRepository()
+
+        const findAllHabits = await createMemoryHabit.create({title: 'Beber 2L de água', weekDays: [1,3,5]})
+        
+        expect(findAllHabits).toEqual('Great! Habit created with success')
+    })
 })
