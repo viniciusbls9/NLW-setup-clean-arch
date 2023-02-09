@@ -23,7 +23,8 @@ export default class HabitsMemoryRepository implements HabitsRepository {
   async create({ title, weekDays }: CreateHabitDTO): Promise<string> {
     this.habits.push({
       title,
-      weekDays
+      weekDays,
+      create_at: "1970-01-01T00:00:00.000Z"
     })
 
     return 'Great! Habit created with success'
