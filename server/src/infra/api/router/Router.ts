@@ -21,10 +21,11 @@ export default class Router {
       return habits
     });
 
-    this.httpServer.on('post', '/habits', async (request: RequestProps) => {
+    this.httpServer.on('post', '/habits', async (request: RequestProps, response: any) => {
       const createHabit = new CreateHabitUseCase(this.habitsRepository)
       const { title, weekDays } = request.body
       await createHabit.execute({ title, weekDays })
+      return response.status(201).send('Great! Habit created with success')
     });
 
     this.httpServer.on('get', '/day', async (request: RequestProps) => {
