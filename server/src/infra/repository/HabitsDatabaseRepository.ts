@@ -6,7 +6,7 @@ export default class HabitsDatabaseRepository implements HabitsRepository {
     constructor(readonly connection: Connection) {}
 
     findDayDetails(date: string): Promise<any[]> {
-        return this.connection.getDayDetails(date)    
+        return this.connection.getDayDetails(date)
     }
 
     create({ title, weekDays }: CreateHabitDTO): Promise<string> {
