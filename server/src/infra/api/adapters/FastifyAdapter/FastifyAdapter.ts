@@ -12,8 +12,8 @@ export default class FastifyAdapter implements HttpServer {
   }
 
   on(method: 'get' | 'post' | 'delete' | 'put', url: string, callback: Function): void {
-    this.app[method](url, async function (request) {
-      const output = await callback(request);
+    this.app[method](url, async function (request, response) {
+      const output = await callback(request, response);
       return output;
     });
   }
