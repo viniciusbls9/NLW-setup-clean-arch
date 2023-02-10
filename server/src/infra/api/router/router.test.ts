@@ -2,7 +2,6 @@ import { describe, test, expect } from 'vitest'
 import HabitsMemoryRepository from '../../../infra/repository/HabitsMemoryRepository';
 
 describe("Router", () => {
-
   test("Should get all habits", async () => {
     const habitsMemory = new HabitsMemoryRepository()
 
@@ -21,5 +20,14 @@ describe("Router", () => {
         create_at: "1970-01-01T00:00:00.000Z"
       }
     ])
+  });
+
+  test("Should create new habits", async () => {
+    const habitsMemory = new HabitsMemoryRepository()
+
+
+    const habits = await habitsMemory.create({title: 'Habit Example', weekDays: [0,1,2]})
+
+    expect(habits).toEqual('Great! Habit created with success')
   });
 });
