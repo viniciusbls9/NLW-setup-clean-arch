@@ -1,5 +1,5 @@
 import { describe, test, expect } from 'vitest'
-import HabitsMemoryRepository from '../../../infra/repository/HabitsMemoryRepository';
+import HabitsMemoryRepository, { mockHabits } from 'infra/repository/HabitsMemoryRepository';
 
 describe("Router", () => {
   test("Should get all habits", async () => {
@@ -8,18 +8,7 @@ describe("Router", () => {
 
     const habits = await habitsMemory.findAll()
 
-    expect(habits).toEqual([
-      {
-        id: "f564aa97-d649-410e-b2f0-70cfe9dae2e2",
-        title: "Beber água",
-        created_at: "1970-01-01T00:00:00.000Z"
-      },
-      {
-        id: "d61207cd-4ff2-4908-a016-d3cdc3a2b9cd",
-        title: "Teste",
-        created_at: "1970-01-01T00:00:00.000Z"
-      }
-    ])
+    expect(habits).toEqual(mockHabits)
   });
 
   test("Should create new habits", async () => {
