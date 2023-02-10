@@ -9,7 +9,7 @@ export default class HabitsDatabaseRepository implements HabitsRepository {
         return this.connection.getDayDetails(date)
     }
 
-    create({ title, weekDays }: CreateHabitDTO): Promise<string> {
+    create({ title, weekDays }: CreateHabitDTO): Promise<any> {
         return this.connection.createHabit({ title, weekDays })
     }
 
