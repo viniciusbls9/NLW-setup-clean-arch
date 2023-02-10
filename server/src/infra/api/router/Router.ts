@@ -2,10 +2,12 @@ import HttpServer from 'infra/api/http/HttpServer';
 import { HabitsRepository } from 'domain/repositories/HabitsRepository';
 import { ListHabitsUseCase } from 'useCases/ListHabits/ListHabitsUseCase';
 import { CreateHabitUseCase } from 'useCases/CreateHabit/CreateHabitUseCase';
+import { DayDetailsUseCase } from 'useCases/DayDetails/DayDetailsUseCase';
 
 interface RequestProps {
   body: { [key: string]: any }
   params: { [key: string]: any }
+  query: { [key: string]: any }
 }
 
 export default class Router {
@@ -23,6 +25,12 @@ export default class Router {
       const createHabit = new CreateHabitUseCase(this.habitsRepository)
       const { title, weekDays } = request.body
       await createHabit.execute({ title, weekDays })
+    });
+
+    this.httpServer.on('get', '/day', async (request: RequestProps) => {
+      const getDayDetails = new DayDetailsUseCase(this.habitsRepository)
+      const { date } = request.query
+      return await getDayDetails.execute(date)
     });
   }
 }
