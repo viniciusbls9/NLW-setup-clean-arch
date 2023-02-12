@@ -1,10 +1,13 @@
+import { Habit } from "domain/repositories/Habit";
 import { HabitsRepository } from "domain/repositories/HabitsRepository";
-import { CreateHabitDTO } from "./CreateHabitDTO";
+import CreateHabitValidate from "useCases/validators/CreateHabitValidate";
 
 export class CreateHabitUseCase {
     constructor(private habitsRepository: HabitsRepository) {}
 
-    async execute(habitData: CreateHabitDTO) {
+    async execute(habitData: Habit) {
+        const validate = new CreateHabitValidate(habitData)
+        validate.validate()
         return this.habitsRepository.create(habitData)
     }
 }
