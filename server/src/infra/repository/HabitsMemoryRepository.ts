@@ -1,3 +1,4 @@
+import { Habit } from "domain/repositories/Habit";
 import { HabitsRepository } from "domain/repositories/HabitsRepository";
 import { CreateHabitDTO } from "useCases/CreateHabit/CreateHabitDTO";
 
@@ -19,13 +20,13 @@ export const mockHabits = [
   }
 ];
 export default class HabitsMemoryRepository implements HabitsRepository {
-  habits: any[];
+  habits: Habit[];
 
   constructor() {
     this.habits = mockHabits;
   }
 
-  async findDayDetails(date: string): Promise<any[]> {
+  async findDayDetails(date: string): Promise<Habit[]> {
     return this.habits.filter(habit => habit.created_at === date)
   }
 
@@ -39,7 +40,7 @@ export default class HabitsMemoryRepository implements HabitsRepository {
     return 'Great! Habit created with success'
   }
 
-  async findAll(): Promise<any[]> {
+  async findAll(): Promise<Habit[]> {
     return this.habits
   }
 }

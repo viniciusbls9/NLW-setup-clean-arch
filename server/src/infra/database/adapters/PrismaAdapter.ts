@@ -46,7 +46,9 @@ export default class PrismaAdpater implements Connection {
   }
 
   getAllHabits(): Promise<any[]> {
-    return this.connection.habit.findMany()
+    const getAllHabits =  this.connection.habit.findMany()
+
+    return getAllHabits
   }
 
 }
