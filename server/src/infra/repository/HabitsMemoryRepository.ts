@@ -29,10 +29,10 @@ export default class HabitsMemoryRepository implements HabitsRepository {
     return this.habits.filter(habit => habit.created_at === date)
   }
 
-  async create({ title, weekDays }: CreateHabitDTO): Promise<string> {
+  async create(habitData: CreateHabitDTO): Promise<string> {
     this.habits.push({
-      title,
-      weekDays,
+      title: habitData.title,
+      weekDays: habitData.weekDays,
       created_at: "1970-01-01T00:00:00.000Z"
     })
 

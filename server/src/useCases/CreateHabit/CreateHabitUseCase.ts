@@ -4,7 +4,7 @@ import { CreateHabitDTO } from "./CreateHabitDTO";
 export class CreateHabitUseCase {
     constructor(private habitsRepository: HabitsRepository) {}
 
-    async execute({title, weekDays}: CreateHabitDTO) {
-        return this.habitsRepository.create({title, weekDays})
+    async execute(habitData: CreateHabitDTO) {
+        return this.habitsRepository.create(habitData)
     }
 }

@@ -4,17 +4,11 @@ import { ListHabitsUseCase } from 'useCases/ListHabits/ListHabitsUseCase';
 import { CreateHabitUseCase } from 'useCases/CreateHabit/CreateHabitUseCase';
 import { DayDetailsUseCase } from 'useCases/DayDetails/DayDetailsUseCase';
 
-interface RequestProps {
-  body: { [key: string]: any }
-  params: { [key: string]: any }
-  query: { [key: string]: any }
-}
-
 export default class Router {
   constructor(readonly httpServer: HttpServer, readonly habitsRepository: HabitsRepository) { }
 
   async init () {
-    this.httpServer.on('get', '/', async (request: RequestProps, response: any) => {
+    this.httpServer.on('get', '/', async (request: any, response: any) => {
       try {
         const listHabitsUseCase = new ListHabitsUseCase(this.habitsRepository)
         const habits = await listHabitsUseCase.execute()
@@ -24,18 +18,17 @@ export default class Router {
       }
     });
 
-    this.httpServer.on('post', '/habits', async (request: RequestProps, response: any) => {
+    this.httpServer.on('post', '/habits', async (request: any, response: any) => {
       try {
         const createHabit = new CreateHabitUseCase(this.habitsRepository)
-        const { title, weekDays } = request.body
-        await createHabit.execute({ title, weekDays })
+        await createHabit.execute(request.body)
         return response.status(201).send('Great! Habit created with success')
       } catch (error) {
         return response.status(500).send(error)
       }
     });
 
-    this.httpServer.on('get', '/day', async (request: RequestProps, response: any) => {
+    this.httpServer.on('get', '/day', async (request: any, response: any) => {
       try {
         const getDayDetails = new DayDetailsUseCase(this.habitsRepository)
         const { date } = request.query
