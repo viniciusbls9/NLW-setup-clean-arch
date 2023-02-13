@@ -31,6 +31,11 @@ export default class HabitsMemoryRepository implements HabitsRepository {
   }
 
   async create(habitData: CreateHabitDTO): Promise<string> {
+  
+    if (!habitData.title || !habitData.weekDays.length) {
+      throw new Error('Title is required')
+    }
+
     this.habits.push({
       title: habitData.title,
       weekDays: habitData.weekDays,
