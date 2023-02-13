@@ -21,7 +21,7 @@ describe('AddHabits', () => {
     const createMemoryHabit = new HabitsMemoryRepository()
     const createHabit = new CreateHabitUseCase(createMemoryHabit)
     const habitData = {
-      title: 6, weekDays: [1, 3, 5]
+      title: '', weekDays: [1, 3, 5]
     }
 
     const response = await createHabit.execute(habitData)
