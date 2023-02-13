@@ -1,15 +1,15 @@
 import { describe, test, expect } from 'vitest'
-import CreateHabitValidate from './CreateHabitValidate'
+import UseCaseValidator from './UseCaseValidator'
 
-describe('CreateHabitValidate', () => {
+describe('UseCaseValidator', () => {
     test('Should return title and weekDays if params are correct', () => {
         const params = {
             title: 'Create Habit',
             weekDays: [1,2,3]
         }
 
-        const validate = new CreateHabitValidate(params)
+        const validate = new UseCaseValidator(params)
 
-        expect(validate.validate()).toEqual(params)
+        expect(validate.createHabitValidator()).toEqual(params)
     })
 })

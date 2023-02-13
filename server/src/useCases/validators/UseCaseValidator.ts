@@ -1,7 +1,7 @@
 import { Habit } from "domain/repositories/Habit"
 import { z } from "zod"
 
-export default class CreateHabitValidate {
+export default class UseCaseValidator {
     validator = z
     data: Habit
 
@@ -9,7 +9,7 @@ export default class CreateHabitValidate {
         this.data = habitData
     }
 
-    validate(): Habit {
+    createHabitValidator(): Habit {
         const createHabitValidate = this.validator.object({
             title: this.validator.string().min(3),
             weekDays: this.validator.array(
