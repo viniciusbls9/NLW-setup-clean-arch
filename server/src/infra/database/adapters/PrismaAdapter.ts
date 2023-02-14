@@ -1,13 +1,14 @@
 import Connection from "./Connection";
-import { PrismaClient } from '@prisma/client'
+import { prisma, PrismaClient } from '@prisma/client'
 import { CreateHabitDTO } from "useCases/CreateHabit/CreateHabitDTO";
 import dayjs from "dayjs";
+import { DayDetails } from "domain/repositories/Habit";
 export default class PrismaAdpater implements Connection {
   connection = new PrismaClient()
 
   constructor() { }
 
-  async getDayDetails(date: string): Promise<any> {
+  async getDayDetails(date: string): Promise<DayDetails> {
     const parsedDate = dayjs(date).startOf('day')
     const weekDay = parsedDate.get('day')
 
@@ -23,9 +24,23 @@ export default class PrismaAdpater implements Connection {
         }
       }
     })
+
+    const day = await this.connection.day.findUnique({
+      where: {
+        date: parsedDate.toDate()
+      },
+      include: {
+        dayHabits: true
+      }
+    })
+
+    const completedHabits = day?.dayHabits.map((dayHabit) => {
+      return dayHabit.habit_id
+    })
     
     return {
-      possibleHabits
+      possibleHabits,
+      completedHabits
     }
   }
 
