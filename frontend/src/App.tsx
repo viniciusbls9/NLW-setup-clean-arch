@@ -1,11 +1,12 @@
+import { Header } from '@components/Header';
 import './presentation/styles/global.css';
 
-function App() {
+export function App() {
   return (
-    <div className="bg-zinc-900 w-10 h-10 text-white rounded">
-      <h1>NLW with Clean Arch</h1>
+    <div className="w-screen h-screen flex justify-center items-center">
+      <div className="w-full max-w-5xl px-6 flex flex-col gap-16">
+        <Header />
+      </div>
     </div>
   );
 }
-
-export default App;
