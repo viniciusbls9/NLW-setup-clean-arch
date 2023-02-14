@@ -31,8 +31,8 @@ export default class Router {
     this.httpServer.on('get', '/day', async (request: any, response: any) => {
       try {
         const getDayDetails = new DayDetailsUseCase(this.habitsRepository)
-        const { date } = request.query
-        return await getDayDetails.execute(date)
+        
+        return await getDayDetails.execute(request.query)
       } catch (error) {
         return response.status(500).send(error)
       }
