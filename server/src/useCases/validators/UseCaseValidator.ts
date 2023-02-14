@@ -23,7 +23,7 @@ export default class UseCaseValidator {
 
   getDayDetailsValidator(): any {
     const getDayParams = this.validator.object({
-      date: z.date()
+      date: z.coerce.date()
     })
 
     const { date } = getDayParams.parse(this.data)
