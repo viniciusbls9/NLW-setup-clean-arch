@@ -1,5 +1,11 @@
 // Vitest Snapshot v1
 
+exports[`HabitDay Component > Should render correctly HabitDay component 1`] = `
+<div
+  class="w-10 h-10 bg-zinc-900 border-2 border-zinc-800 rounded-lg"
+/>
+`;
+
 exports[`Header Component > Should render correctly header component 1`] = `
 <div
   class="w-10 h-10 bg-zinc-900 border-2 border-zinc-800 rounded-lg"

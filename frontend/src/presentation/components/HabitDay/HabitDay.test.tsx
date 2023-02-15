@@ -3,8 +3,8 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { HabitDay } from '.';
 
-describe('Header Component', () => {
-  test('Should render correctly header component', () => {
+describe('HabitDay Component', () => {
+  test('Should render correctly HabitDay component', () => {
     const { container } = render(<HabitDay />);
     expect(container.firstChild).toMatchSnapshot();
   });
