@@ -1,5 +1,9 @@
 import { HabitDay } from '@components/HabitDay';
 import { WeekDays } from '@components/WeekDay';
+import { GenerateDateFromYearBeginning } from '@presentation/utils/generate-date-from-year-beginning';
+
+const generateDateFromYearBeginning = new GenerateDateFromYearBeginning();
+const summaryDates = generateDateFromYearBeginning.generateDate();
 
 export const SummaryTable = () => {
   const weekDays = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'];
@@ -9,7 +13,9 @@ export const SummaryTable = () => {
       <WeekDays weekDays={weekDays} />
 
       <div className="grid grid-rows-7 grid-flow-col gap-3">
-        <HabitDay />
+        {summaryDates.map((date) => (
+          <HabitDay key={date.toString()} />
+        ))}
       </div>
     </div>
   );
