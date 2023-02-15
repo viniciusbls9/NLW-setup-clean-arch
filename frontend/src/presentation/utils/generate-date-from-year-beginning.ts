@@ -9,7 +9,7 @@ export class GenerateDateFromYearBeginning {
 
   generateDate() {
     const firstDayOfTheYear = this.helperDay().startOf('year');
-    const today = new Date();
+    const today = new Date('2023-01-15');
 
     const dates = [];
     let compareDate = firstDayOfTheYear;
@@ -18,6 +18,7 @@ export class GenerateDateFromYearBeginning {
       dates.push(compareDate.toDate());
       compareDate = compareDate.add(1, 'day');
     }
+
     return dates;
   }
 }
