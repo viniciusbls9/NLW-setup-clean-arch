@@ -18,7 +18,8 @@
     "baseUrl": "./src",
     "paths": {
       "@assets/*": ["presentation/assets/*"],
-      "@components/*": ["presentation/components/*"]
+      "@components/*": ["presentation/components/*"],
+      "@presentation/*": ["presentation/*"],
     }
   },
   "include": ["src"],
