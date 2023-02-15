@@ -1,0 +1,54 @@
+// Vitest Snapshot v1
+
+exports[`Header Component > Should render correctly header component 1`] = `
+<div
+  class="w-full max-w-3xl mx-auto flex items-center justify-between"
+>
+  <img
+    alt="Logo Habit"
+    src="/src/presentation/assets/logo.svg"
+  />
+  <button
+    class="border border-violet-500 font-semibold rounded-lg px-6 py-4 flex items-center gap-3 hover:border-violet-300"
+    type="button"
+  >
+    <svg
+      class="text-violet-500"
+      fill="currentColor"
+      height="20"
+      viewBox="0 0 256 256"
+      width="20"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect
+        fill="none"
+        height="256"
+        width="256"
+      />
+      <line
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="16"
+        x1="40"
+        x2="216"
+        y1="128"
+        y2="128"
+      />
+      <line
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="16"
+        x1="128"
+        x2="128"
+        y1="40"
+        y2="216"
+      />
+    </svg>
+    Novo hábito
+  </button>
+</div>
+`;
