@@ -1,6 +1,6 @@
 import { HabitDay } from '@components/HabitDay';
 import { WeekDays } from '@components/WeekDay';
-import { GenerateDateFromYearBeginning } from '@presentation/utils/generate-date-from-year-beginning';
+import { GenerateDateFromYearBeginning } from '@presentation/utils/generateDateFromYearBeginning/generate-date-from-year-beginning';
 
 const generateDateFromYearBeginning = new GenerateDateFromYearBeginning();
 const summaryDates = generateDateFromYearBeginning.generateDate();
