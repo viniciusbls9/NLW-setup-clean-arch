@@ -5,6 +5,9 @@ import { GenerateDateFromYearBeginning } from '@presentation/utils/generateDateF
 const generateDateFromYearBeginning = new GenerateDateFromYearBeginning();
 const summaryDates = generateDateFromYearBeginning.generateDate();
 
+const mininumSummaryDatesSize = 18 * 7;
+const amountOfDaysToFill = mininumSummaryDatesSize - summaryDates.length;
+
 export const SummaryTable = () => {
   const weekDays = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'];
 
@@ -16,6 +19,16 @@ export const SummaryTable = () => {
         {summaryDates.map((date) => (
           <HabitDay key={date.toString()} />
         ))}
+
+        {amountOfDaysToFill > 0 &&
+          Array.from({ length: amountOfDaysToFill }).map((_, index) => {
+            return (
+              <div
+                key={index}
+                className="w-10 h-10 bg-zinc-900 border-2 border-zinc-800 rounded-lg opacity-40 cursor-not-allowed"
+              />
+            );
+          })}
       </div>
     </div>
   );
