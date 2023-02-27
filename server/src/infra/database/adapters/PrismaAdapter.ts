@@ -1,5 +1,5 @@
 import Connection from "./Connection";
-import { prisma, PrismaClient } from '@prisma/client'
+import { PrismaClient } from '@prisma/client'
 import { CreateHabitDTO } from "useCases/CreateHabit/CreateHabitDTO";
 import dayjs from "dayjs";
 import { DayDetails } from "domain/repositories/Habit";

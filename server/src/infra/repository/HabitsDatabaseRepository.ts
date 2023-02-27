@@ -10,7 +10,7 @@ export default class HabitsDatabaseRepository implements HabitsRepository {
         throw new Error("Method not implemented.");
     }
 
-    findDayDetails(date: string): Promise<DayDetails[]> {
+    findDayDetails(date: string): Promise<DayDetails> {
         return this.connection.getDayDetails(date)
     }
 
