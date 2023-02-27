@@ -30,4 +30,14 @@ export default class UseCaseValidator {
 
     return date
   }
+
+  toggleHabitValidator(): any {
+    const toggleHabitParams = this.validator.object({
+      id: z.string().uuid()
+    })
+
+    const { id } = toggleHabitParams.parse(this.data)
+
+    return id
+  }
 }
