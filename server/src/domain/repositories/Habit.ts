@@ -9,7 +9,7 @@ export interface DayDetails {
   possibleHabits: {
     id: string,
     title: string
-    created_at: Date
+    created_at: Date | string
   }[],
   completedHabits?: string[]
 }
