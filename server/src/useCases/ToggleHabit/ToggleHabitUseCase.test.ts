@@ -41,8 +41,6 @@ describe('ToggleHabitUseCase', () => {
     const params = {
       id: '00880d75-a933-4fef-94ab-e05744435297'
     }
-    dayDetailsMock.completedHabits.push(params.id)
-
     const output = {
       ...dayDetailsMock,
       completedHabits: [
