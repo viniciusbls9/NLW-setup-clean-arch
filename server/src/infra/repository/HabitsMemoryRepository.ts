@@ -1,4 +1,4 @@
-import { Habit } from "domain/repositories/Habit";
+import { DayDetails, Habit } from "domain/repositories/Habit";
 import { HabitsRepository } from "domain/repositories/HabitsRepository";
 import { CreateHabitDTO } from "useCases/CreateHabit/CreateHabitDTO";
 
@@ -6,7 +6,7 @@ export const mockHabits = [
   {
     id: "f564aa97-d649-410e-b2f0-70cfe9dae2e2",
     title: "Drink Water",
-    created_at: "2023-02-01T00:00:00.000Z"
+    created_at: "2023-02-01T00:00:00.000Z",
   },
   {
     id: "d61207cd-4ff2-4908-a016-d3cdc3a2b9cd",
@@ -19,19 +19,36 @@ export const mockHabits = [
     created_at: "2023-02-05T00:00:00.000Z"
   }
 ];
+
+const dayDetailsMock = {
+  possibleHabits: [
+    {
+      id: "0730ffac-d039-4194-9571-01aa2aa0efbd",
+      title: "Beber 2L água",
+      created_at: "2022-12-31T06:00:00.000Z"
+    }
+  ],
+}
+
 export default class HabitsMemoryRepository implements HabitsRepository {
   habits: Habit[];
+  possibleHabits: any
 
   constructor() {
     this.habits = mockHabits;
+    this.possibleHabits = dayDetailsMock.possibleHabits
   }
 
-  async findDayDetails(date: string): Promise<Habit[]> {
-    return this.habits.filter(habit => habit.created_at === date)
+  toggleHabit(): Promise<any> {
+    throw new Error("Method not implemented.");
+  }
+
+  async findDayDetails(date: string): Promise<DayDetails[]> {
+    return []
   }
 
   async create(habitData: CreateHabitDTO): Promise<string> {
-  
+
     if (!habitData.title || !habitData.weekDays.length) {
       throw new Error('Title is required')
     }
