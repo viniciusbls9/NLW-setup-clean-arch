@@ -20,7 +20,7 @@ export const mockHabits = [
   }
 ];
 
-const dayDetailsMock = {
+export const dayDetailsMock = {
   possibleHabits: [
     {
       id: "0730ffac-d039-4194-9571-01aa2aa0efbd",
@@ -28,16 +28,15 @@ const dayDetailsMock = {
       created_at: "2023-02-05T00:00:00.000Z"
     },
     {
-      id: "0730ffac-d039-4194-9571-01aa2aa0efbd",
-      title: "Learn about backend",
-      created_at: "2022-02-05T00:00:00.000Z"
+      id: "00880d75-a933-4fef-94ab-e05744435297",
+      title: "Exercitar",
+      created_at: "2023-01-03T06:00:00.000Z"
     }
   ],
   completedHabits: [
     "0730ffac-d039-4194-9571-01aa2aa0efbd"
   ]
 }
-
 
 export default class HabitsMemoryRepository implements HabitsRepository {
   habits: Habit[];
@@ -49,6 +48,13 @@ export default class HabitsMemoryRepository implements HabitsRepository {
   }
 
   async toggleHabit(id: string): Promise<void> {
+    const findDay = dayDetailsMock.completedHabits.findIndex((dayId) => dayId === id)
+
+    if (findDay !== -1) {
+      dayDetailsMock.completedHabits.splice(findDay, 1)
+      return
+    }
+
     dayDetailsMock.completedHabits.push(id)
   }
 
