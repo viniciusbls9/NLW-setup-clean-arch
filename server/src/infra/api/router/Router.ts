@@ -42,7 +42,6 @@ export default class Router {
     this.httpServer.on('patch', '/habits/:id/toggle', async (request: any, response: any) => {
       try {
         const toggleHabit = new ToggleHabitUseCase(this.habitsRepository)
-        
         return await toggleHabit.execute(request.params)
       } catch (error) {
         return response.status(500).send(error)

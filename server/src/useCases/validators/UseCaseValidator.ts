@@ -23,7 +23,7 @@ export default class UseCaseValidator {
 
   getDayDetailsValidator(): any {
     const getDayParams = this.validator.object({
-      date: z.coerce.date()
+      date: this.validator.coerce.date()
     })
 
     const { date } = getDayParams.parse(this.data)
@@ -33,7 +33,7 @@ export default class UseCaseValidator {
 
   toggleHabitValidator(): any {
     const toggleHabitParams = this.validator.object({
-      id: z.string().uuid()
+      id: this.validator.string().uuid()
     })
 
     const { id } = toggleHabitParams.parse(this.data)

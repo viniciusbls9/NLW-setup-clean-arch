@@ -5,4 +5,5 @@ export default interface Connection {
     getAllHabits(): Promise<Habit[]>
     createHabit(habitData: CreateHabitDTO): Promise<any>
     getDayDetails(date: string): Promise<DayDetails>
+    toggleHabit(id: string): Promise<any>
 }

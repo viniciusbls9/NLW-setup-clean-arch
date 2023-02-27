@@ -8,6 +8,49 @@ export default class PrismaAdpater implements Connection {
 
   constructor() { }
 
+  async toggleHabit(id: string): Promise<any> {
+    const today = dayjs().startOf('day').toDate()
+
+    let day = await this.connection.day.findUnique({
+      where: {
+        date: today
+      }
+    })
+
+    if (!day) {
+      day = await this.connection.day.create({
+        data: {
+          date: today
+        }
+      })
+    }
+
+    const dayHabit = await this.connection.dayHabit.findUnique({
+      where: {
+        day_id_habit_id: {
+          day_id: day.id,
+          habit_id: id
+        }
+      }
+    })
+
+    if(dayHabit) {
+      await this.connection.dayHabit.delete({
+        where: {
+          id: dayHabit.id
+        }
+      })
+    }
+
+    await this.connection.dayHabit.create({
+      data: {
+        day_id: day.id,
+        habit_id: id
+      }
+    })
+
+  }
+
   async getDayDetails(date: string): Promise<DayDetails> {
     const parsedDate = dayjs(date).startOf('day')
     const weekDay = parsedDate.get('day')

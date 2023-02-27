@@ -6,7 +6,7 @@ export class ToggleHabitUseCase {
 
     async execute(habitId: { id: string }) {
         const validate = new UseCaseValidator(habitId)
-        validate.getDayDetailsValidator()
+        validate.toggleHabitValidator()
         return this.habitsRepository.toggleHabit(habitId.id)
     }
 }
