@@ -11,18 +11,18 @@ describe('DayDetailsUseCase', () => {
       date: '2023-02-05T00:00:00.000Z'
     }
 
-    const output = [
-      {
-        id: "d61207cd-4ff2-4908-a016-d3cdc3a2b9cd",
-        title: "Study Clean Arch",
-        created_at: "2023-02-05T00:00:00.000Z"
-      },
-      {
-        id: "d61207cd-4ff2-4908-a016-d3cdc3a2b9cd",
-        title: "Study backend",
-        created_at: "2023-02-05T00:00:00.000Z"
-      }
-    ];
+    const output = {
+      possibleHabits: [
+        {
+          id: "0730ffac-d039-4194-9571-01aa2aa0efbd",
+          title: "Beber 2L de água",
+          created_at: "2023-02-05T00:00:00.000Z"
+        },
+      ],
+      completedHabits: [
+        "0730ffac-d039-4194-9571-01aa2aa0efbd"
+      ]
+    }
 
     const habits = await dayDetailsUseCase.execute(params)
 
@@ -35,12 +35,12 @@ describe('DayDetailsUseCase', () => {
     const dayDetailsUseCase = new DayDetailsUseCase(habitsMemory)
 
     const params = {
-      date: '2023-10-05T00:00:00.000Z'
+      date: '2021-10-05T00:00:00.000Z'
     }
 
     const habits = await dayDetailsUseCase.execute(params)
 
-    expect(habits).toEqual([])
+    expect(habits.possibleHabits).toEqual([])
 
   })
 })

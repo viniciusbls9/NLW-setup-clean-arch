@@ -24,10 +24,18 @@ const dayDetailsMock = {
   possibleHabits: [
     {
       id: "0730ffac-d039-4194-9571-01aa2aa0efbd",
-      title: "Beber 2L água",
-      created_at: "2022-12-31T06:00:00.000Z"
+      title: "Beber 2L de água",
+      created_at: "2023-02-05T00:00:00.000Z"
+    },
+    {
+      id: "0730ffac-d039-4194-9571-01aa2aa0efbd",
+      title: "Learn about backend",
+      created_at: "2022-02-05T00:00:00.000Z"
     }
   ],
+  completedHabits: [
+		"0730ffac-d039-4194-9571-01aa2aa0efbd"
+	]
 }
 
 export default class HabitsMemoryRepository implements HabitsRepository {
@@ -43,8 +51,17 @@ export default class HabitsMemoryRepository implements HabitsRepository {
     throw new Error("Method not implemented.");
   }
 
-  async findDayDetails(date: string): Promise<DayDetails[]> {
-    return []
+  async findDayDetails(date: string): Promise<DayDetails> {
+    const findDay = dayDetailsMock.possibleHabits.filter((habit) => habit.created_at === date)
+
+    if (!findDay) {
+      throw new Error('Error')
+    }
+
+    return {
+      possibleHabits: findDay,
+      completedHabits: dayDetailsMock.completedHabits
+    }
   }
 
   async create(habitData: CreateHabitDTO): Promise<string> {
