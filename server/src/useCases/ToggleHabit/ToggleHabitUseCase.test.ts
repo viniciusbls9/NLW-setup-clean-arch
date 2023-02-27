@@ -35,7 +35,7 @@ describe('ToggleHabitUseCase', () => {
 
   })
 
-  test.only('should call toggleHabitUseCase.execute with existing id and remove from completedHabits array', async () => {
+  test('should call toggleHabitUseCase.execute with existing id and remove from completedHabits array', async () => {
     const habitsMemory = new HabitsMemoryRepository()
     const toggleHabitUseCase = new ToggleHabitUseCase(habitsMemory)
     const params = {
