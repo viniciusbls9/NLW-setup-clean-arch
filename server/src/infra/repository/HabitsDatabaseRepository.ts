@@ -6,7 +6,11 @@ import { CreateHabitDTO } from "useCases/CreateHabit/CreateHabitDTO";
 export default class HabitsDatabaseRepository implements HabitsRepository {
     constructor(readonly connection: Connection) {}
 
-    findDayDetails(date: string): Promise<DayDetails> {
+    toggleHabit(): Promise<any> {
+        throw new Error("Method not implemented.");
+    }
+
+    findDayDetails(date: string): Promise<DayDetails[]> {
         return this.connection.getDayDetails(date)
     }
 
