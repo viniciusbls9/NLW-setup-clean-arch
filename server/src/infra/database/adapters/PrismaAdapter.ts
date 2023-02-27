@@ -8,7 +8,7 @@ export default class PrismaAdpater implements Connection {
 
   constructor() { }
 
-  async toggleHabit(id: string): Promise<any> {
+  async toggleHabit(id: string): Promise<void> {
     const today = dayjs().startOf('day').toDate()
 
     let day = await this.connection.day.findUnique({

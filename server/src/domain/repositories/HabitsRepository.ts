@@ -4,5 +4,5 @@ export interface HabitsRepository {
     findAll(): Promise<Habit[]>
     create(habitData: Habit): Promise<string>
     findDayDetails(date: string): Promise<DayDetails>
-    toggleHabit(id: string): Promise<any>
+    toggleHabit(id: string): Promise<void>
 }

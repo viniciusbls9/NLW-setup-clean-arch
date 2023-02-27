@@ -34,9 +34,10 @@ const dayDetailsMock = {
     }
   ],
   completedHabits: [
-		"0730ffac-d039-4194-9571-01aa2aa0efbd"
-	]
+    "0730ffac-d039-4194-9571-01aa2aa0efbd"
+  ]
 }
+
 
 export default class HabitsMemoryRepository implements HabitsRepository {
   habits: Habit[];
@@ -47,15 +48,15 @@ export default class HabitsMemoryRepository implements HabitsRepository {
     this.possibleHabits = dayDetailsMock.possibleHabits
   }
 
-  toggleHabit(): Promise<any> {
-    throw new Error("Method not implemented.");
+  async toggleHabit(id: string): Promise<void> {
+    dayDetailsMock.completedHabits.push(id)
   }
 
   async findDayDetails(date: string): Promise<DayDetails> {
     const findDay = dayDetailsMock.possibleHabits.filter((habit) => habit.created_at === date)
 
     if (!findDay) {
-      throw new Error('Error')
+      throw new Error('Day does not exist')
     }
 
     return {
