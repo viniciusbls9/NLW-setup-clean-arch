@@ -4,6 +4,7 @@ import { ListHabitsUseCase } from 'useCases/ListHabits/ListHabitsUseCase';
 import { CreateHabitUseCase } from 'useCases/CreateHabit/CreateHabitUseCase';
 import { DayDetailsUseCase } from 'useCases/DayDetails/DayDetailsUseCase';
 import { ToggleHabitUseCase } from 'useCases/ToggleHabit/ToggleHabitUseCase';
+import { SummaryUseCase } from 'useCases/Summary/SummaryUseCase';
 
 export default class Router {
   constructor(readonly httpServer: HttpServer, readonly habitsRepository: HabitsRepository) { }
@@ -43,6 +44,15 @@ export default class Router {
       try {
         const toggleHabit = new ToggleHabitUseCase(this.habitsRepository)
         return await toggleHabit.execute(request.params)
+      } catch (error) {
+        return response.status(500).send(error)
+      }
+    });
+
+    this.httpServer.on('get', '/summary', async (request: any, response: any) => {
+      try {
+        const summaryUseCase = new SummaryUseCase(this.habitsRepository)
+        return await summaryUseCase.execute()
       } catch (error) {
         return response.status(500).send(error)
       }
