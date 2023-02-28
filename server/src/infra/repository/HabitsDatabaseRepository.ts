@@ -6,6 +6,10 @@ import { CreateHabitDTO } from "useCases/CreateHabit/CreateHabitDTO";
 export default class HabitsDatabaseRepository implements HabitsRepository {
     constructor(readonly connection: Connection) {}
 
+    summary(): Promise<void> {
+        return this.connection.summary()
+    }
+
     toggleHabit(id: string): Promise<void> {
         return this.connection.toggleHabit(id)
     }
