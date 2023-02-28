@@ -20,4 +20,12 @@ describe('UseCaseValidator', () => {
     
     expect(validate.getDayDetailsValidator()).toBeTypeOf('object')
   })
+
+  test('Should return id if params are correct', async () => {
+    const params = { id: '00880d75-a933-4fef-94ab-e05744435297' }
+
+    const validate = new UseCaseValidator(params)
+    
+    expect(validate.toggleHabitValidator()).toBeTypeOf('string')
+  })
 })
