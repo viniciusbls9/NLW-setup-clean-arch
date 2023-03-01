@@ -8,6 +8,33 @@ export default class PrismaAdpater implements Connection {
 
   constructor() { }
 
+  async summary(): Promise<unknown> {
+    const summary = await this.connection.$queryRaw`
+      SELECT
+        D.id,
+        D.date,
+        (
+          SELECT
+            cast(count(*) as float)
+          FROM day_habits DH
+          WHERE DH.day_id = D.id
+        ) as completed,
+        (
+          SELECT
+            cast(count(*) as float)
+          FROM habit_week_days HWD
+          JOIN habits H
+            ON H.id = HWD.habit_id
+          WHERE
+            HWD.week_day = cast(strftime('%w', D.date/1000.0, 'unixepoch') as int)
+            AND H.created_at <= D.date
+        ) as amount
+      FROM days D
+    `
+
+    return summary
+  }
+
   async toggleHabit(id: string): Promise<void> {
     const today = dayjs().startOf('day').toDate()
 
@@ -34,21 +61,21 @@ export default class PrismaAdpater implements Connection {
       }
     })
 
-    if(dayHabit) {
+    if (dayHabit) {
       await this.connection.dayHabit.delete({
         where: {
           id: dayHabit.id
         }
       })
+    } else {
+      await this.connection.dayHabit.create({
+        data: {
+          day_id: day.id,
+          habit_id: id
+        }
+      })
+
     }
-
-    await this.connection.dayHabit.create({
-      data: {
-        day_id: day.id,
-        habit_id: id
-      }
-    })
-
   }
 
   async getDayDetails(date: string): Promise<DayDetails> {
@@ -80,7 +107,7 @@ export default class PrismaAdpater implements Connection {
     const completedHabits = day?.dayHabits.map((dayHabit) => {
       return dayHabit.habit_id
     })
-    
+
     return {
       possibleHabits,
       completedHabits
@@ -104,7 +131,7 @@ export default class PrismaAdpater implements Connection {
   }
 
   getAllHabits(): Promise<any[]> {
-    const getAllHabits =  this.connection.habit.findMany()
+    const getAllHabits = this.connection.habit.findMany()
 
     return getAllHabits
   }

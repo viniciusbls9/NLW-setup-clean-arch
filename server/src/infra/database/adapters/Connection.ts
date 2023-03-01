@@ -6,5 +6,5 @@ export default interface Connection {
     createHabit(habitData: CreateHabitDTO): Promise<any>
     getDayDetails(date: string): Promise<DayDetails>
     toggleHabit(id: string): Promise<void>
-    summary(): Promise<void>
+    summary(): Promise<unknown>
 }
