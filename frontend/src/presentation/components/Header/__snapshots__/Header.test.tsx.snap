@@ -9,7 +9,11 @@ exports[`Header Component > Should render correctly header component 1`] = `
     src="/src/presentation/assets/logo.svg"
   />
   <button
+    aria-controls="radix-:r0:"
+    aria-expanded="false"
+    aria-haspopup="dialog"
     class="border border-violet-500 font-semibold rounded-lg px-6 py-4 flex items-center gap-3 hover:border-violet-300"
+    data-state="closed"
     type="button"
   >
     <svg
