@@ -12,7 +12,7 @@ describe('HabitProgressBar Component', () => {
   test('Should receive correctly progress number', () => {
     render(<HabitProgressBar progress={75} />);
     expect(screen.getByRole('progressbar')).toHaveStyle({
-        width: '75%'
-      })
+      width: '75%'
+    });
   });
 });
