@@ -46,47 +46,117 @@ exports[`SummaryTable Component > Should render header component correctly 1`] =
   <div
     class="grid grid-rows-7 grid-flow-col gap-3"
   >
-    <div
+    <button
+      aria-controls="radix-:r0:"
+      aria-expanded="false"
+      aria-haspopup="dialog"
       class="w-10 h-10 bg-zinc-900 border-2 border-zinc-800 rounded-lg"
+      data-state="closed"
+      type="button"
     />
-    <div
+    <button
+      aria-controls="radix-:r1:"
+      aria-expanded="false"
+      aria-haspopup="dialog"
       class="w-10 h-10 bg-zinc-900 border-2 border-zinc-800 rounded-lg"
+      data-state="closed"
+      type="button"
     />
-    <div
+    <button
+      aria-controls="radix-:r2:"
+      aria-expanded="false"
+      aria-haspopup="dialog"
       class="w-10 h-10 bg-zinc-900 border-2 border-zinc-800 rounded-lg"
+      data-state="closed"
+      type="button"
     />
-    <div
+    <button
+      aria-controls="radix-:r3:"
+      aria-expanded="false"
+      aria-haspopup="dialog"
       class="w-10 h-10 bg-zinc-900 border-2 border-zinc-800 rounded-lg"
+      data-state="closed"
+      type="button"
     />
-    <div
+    <button
+      aria-controls="radix-:r4:"
+      aria-expanded="false"
+      aria-haspopup="dialog"
       class="w-10 h-10 bg-zinc-900 border-2 border-zinc-800 rounded-lg"
+      data-state="closed"
+      type="button"
     />
-    <div
+    <button
+      aria-controls="radix-:r5:"
+      aria-expanded="false"
+      aria-haspopup="dialog"
       class="w-10 h-10 bg-zinc-900 border-2 border-zinc-800 rounded-lg"
+      data-state="closed"
+      type="button"
     />
-    <div
+    <button
+      aria-controls="radix-:r6:"
+      aria-expanded="false"
+      aria-haspopup="dialog"
       class="w-10 h-10 bg-zinc-900 border-2 border-zinc-800 rounded-lg"
+      data-state="closed"
+      type="button"
     />
-    <div
+    <button
+      aria-controls="radix-:r7:"
+      aria-expanded="false"
+      aria-haspopup="dialog"
       class="w-10 h-10 bg-zinc-900 border-2 border-zinc-800 rounded-lg"
+      data-state="closed"
+      type="button"
     />
-    <div
+    <button
+      aria-controls="radix-:r8:"
+      aria-expanded="false"
+      aria-haspopup="dialog"
       class="w-10 h-10 bg-zinc-900 border-2 border-zinc-800 rounded-lg"
+      data-state="closed"
+      type="button"
     />
-    <div
+    <button
+      aria-controls="radix-:r9:"
+      aria-expanded="false"
+      aria-haspopup="dialog"
       class="w-10 h-10 bg-zinc-900 border-2 border-zinc-800 rounded-lg"
+      data-state="closed"
+      type="button"
     />
-    <div
+    <button
+      aria-controls="radix-:ra:"
+      aria-expanded="false"
+      aria-haspopup="dialog"
       class="w-10 h-10 bg-zinc-900 border-2 border-zinc-800 rounded-lg"
+      data-state="closed"
+      type="button"
     />
-    <div
+    <button
+      aria-controls="radix-:rb:"
+      aria-expanded="false"
+      aria-haspopup="dialog"
       class="w-10 h-10 bg-zinc-900 border-2 border-zinc-800 rounded-lg"
+      data-state="closed"
+      type="button"
     />
-    <div
+    <button
+      aria-controls="radix-:rc:"
+      aria-expanded="false"
+      aria-haspopup="dialog"
       class="w-10 h-10 bg-zinc-900 border-2 border-zinc-800 rounded-lg"
+      data-state="closed"
+      type="button"
     />
-    <div
+    <button
+      aria-controls="radix-:rd:"
+      aria-expanded="false"
+      aria-haspopup="dialog"
       class="w-10 h-10 bg-zinc-900 border-2 border-zinc-800 rounded-lg"
+      data-state="closed"
+      type="button"
     />
     <div
       class="w-10 h-10 bg-zinc-900 border-2 border-zinc-800 rounded-lg opacity-40 cursor-not-allowed"
