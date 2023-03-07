@@ -1,7 +1,12 @@
 // Vitest Snapshot v1
 
 exports[`HabitDay Component > Should render correctly HabitDay component 1`] = `
-<div
+<button
+  aria-controls="radix-:r0:"
+  aria-expanded="false"
+  aria-haspopup="dialog"
   class="w-10 h-10 bg-zinc-900 border-2 border-zinc-800 rounded-lg"
+  data-state="closed"
+  type="button"
 />
 `;
