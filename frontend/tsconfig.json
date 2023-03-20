@@ -20,6 +20,7 @@
       "@assets/*": ["presentation/assets/*"],
       "@components/*": ["presentation/components/*"],
       "@presentation/*": ["presentation/*"],
+      "@data/*": ["data/*"],
     }
   },
   "include": ["src"],
