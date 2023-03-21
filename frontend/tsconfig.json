@@ -21,6 +21,8 @@
       "@components/*": ["presentation/components/*"],
       "@presentation/*": ["presentation/*"],
       "@infra/*": ["infra/*"],
+      "@gateways/*": ["gateways/*"],
+      "@context/*": ["context/*"],
     }
   },
   "include": ["src"],

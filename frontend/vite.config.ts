@@ -20,6 +20,8 @@ export default defineConfig({
       '@assets': path.resolve(__dirname, './src/presentation/assets'),
       '@components': path.resolve(__dirname, './src/presentation/components'),
       '@infra': path.resolve(__dirname, './src/infra'),
+      '@gateways': path.resolve(__dirname, './src/gateways'),
+      '@context': path.resolve(__dirname, './src/context'),
       '@presentation': path.resolve(__dirname, './src/presentation')
     }
   }
