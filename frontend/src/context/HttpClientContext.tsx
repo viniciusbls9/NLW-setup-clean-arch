@@ -12,7 +12,7 @@ export type HttpClientType = {
 const defaultContext: HttpClientType = {
   habitGateway: new HabitHttpGateway(
     httpClientInstance,
-    'http://localhost:3001'
+    'http://localhost:3333'
   )
 };
 
@@ -21,7 +21,7 @@ export const HttpClientContext = createContext(defaultContext);
 export const HttpClientProvider = ({ children }: PropsWithChildren) => {
   const habitGateway = new HabitHttpGateway(
     httpClientInstance,
-    'http://localhost:3001'
+    'http://localhost:3333'
   );
 
   return (
