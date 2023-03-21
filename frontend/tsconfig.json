@@ -19,6 +19,7 @@
     "paths": {
       "@assets/*": ["presentation/assets/*"],
       "@components/*": ["presentation/components/*"],
+      "@hooks/*": ["hooks/*"],
       "@presentation/*": ["presentation/*"],
       "@infra/*": ["infra/*"],
       "@gateways/*": ["gateways/*"],

@@ -1,16 +1,21 @@
 import { HabitDay } from '@components/HabitDay';
 import { WeekDays } from '@components/WeekDay';
 import { GenerateDateFromYearBeginning } from '@presentation/utils/generateDateFromYearBeginning/generate-date-from-year-beginning';
+import { useHttpClient } from '@context/HttpClientContext';
+import { useHabit } from '@hooks/useHabit';
 
 const generateDateFromYearBeginning = new GenerateDateFromYearBeginning();
 const summaryDates = generateDateFromYearBeginning.generateDate();
 
 const mininumSummaryDatesSize = 18 * 7;
 const amountOfDaysToFill = mininumSummaryDatesSize - summaryDates.length;
+const weekDays = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'];
 
 export const SummaryTable = () => {
-  const weekDays = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'];
+  const { habitGateway } = useHttpClient();
+  const { habits } = useHabit(habitGateway);
 
+  console.log(habits);
   return (
     <div className="w-full flex">
       <WeekDays weekDays={weekDays} />
