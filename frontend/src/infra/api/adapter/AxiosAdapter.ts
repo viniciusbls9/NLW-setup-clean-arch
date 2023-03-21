@@ -1,25 +1,22 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import axios, { AxiosInstance, AxiosResponse } from 'axios';
+import axios from 'axios';
 import HttpServer from 'infra/api/http/HttpServer';
 
 export default class AxiosAdapter implements HttpServer {
-  app: AxiosInstance;
-
-  constructor() {
-    this.app = axios;
+  async get(url: string): Promise<any> {
+    const response = await axios.get(url);
+    return response.data;
   }
-
-  on(
-    method: 'get' | 'post' | 'delete' | 'put',
-    url: string,
-    callback: Function
-  ): void {
-    this.app
-      .get('http://localhost:3333/summary')
-      .then((response) => response.data);
-    this.app[method](url, async function (response: AxiosResponse) {
-      const output = await callback(response);
-      return output;
-    });
+  async post(url: string, body: any): Promise<any> {
+    const response = await axios.post(url, body);
+    return response.data;
+  }
+  async put(url: string, body: any): Promise<any> {
+    const response = await axios.put(url, body);
+    return response.data;
+  }
+  async delete(url: string): Promise<any> {
+    const response = await axios.delete(url);
+    return response.data;
   }
 }
