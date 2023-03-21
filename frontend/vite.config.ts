@@ -19,6 +19,7 @@ export default defineConfig({
     alias: {
       '@assets': path.resolve(__dirname, './src/presentation/assets'),
       '@components': path.resolve(__dirname, './src/presentation/components'),
+      '@hooks': path.resolve(__dirname, './src/hooks'),
       '@infra': path.resolve(__dirname, './src/infra'),
       '@gateways': path.resolve(__dirname, './src/gateways'),
       '@context': path.resolve(__dirname, './src/context'),
