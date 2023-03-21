@@ -1,4 +1,6 @@
-/* eslint-disable @typescript-eslint/ban-types */
-export default interface HttpServer {
-  on(method: string, url: string, callback: Function): void;
+export default interface HttpClient {
+  get(url: string): Promise<any>;
+  post(url: string, body: any): Promise<any>;
+  put(url: string, body: any): Promise<any>;
+  delete(url: string): Promise<any>;
 }
