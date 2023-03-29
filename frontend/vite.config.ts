@@ -21,6 +21,7 @@ export default defineConfig({
       '@components': path.resolve(__dirname, './src/presentation/components'),
       '@hooks': path.resolve(__dirname, './src/hooks'),
       '@infra': path.resolve(__dirname, './src/infra'),
+      '@entities': path.resolve(__dirname, './src/entities'),
       '@gateways': path.resolve(__dirname, './src/gateways'),
       '@context': path.resolve(__dirname, './src/context'),
       '@presentation': path.resolve(__dirname, './src/presentation')

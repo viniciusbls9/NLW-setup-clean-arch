@@ -22,6 +22,7 @@
       "@hooks/*": ["hooks/*"],
       "@presentation/*": ["presentation/*"],
       "@infra/*": ["infra/*"],
+      "@entities/*": ["entities/*"],
       "@gateways/*": ["gateways/*"],
       "@context/*": ["context/*"],
     }
