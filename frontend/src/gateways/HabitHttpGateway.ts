@@ -5,10 +5,10 @@ import { DayDetails, Habit, HabitsRepository } from '@gateways/HabitGateway';
 export default class HabitHttpGateway implements HabitsRepository {
   constructor(readonly httpClient: HttpServer, readonly baseUrl: string) {}
 
-  async findAll(): Promise<Habit[]> {
+  async findAll(): Promise<any> {
     const habitData = await this.httpClient.get(`${this.baseUrl}/`);
     const habits = new Habits(habitData);
-    return habits.findAll();
+    return habits;
   }
 
   async create(habitData: Habit): Promise<any> {
