@@ -19,7 +19,7 @@ export default class Habits extends Observable {
 
   async create(habitData: Habit) {
     this.items.push(habitData);
-    this.notify('addItem', habitData);
+    this.notify('create', habitData);
   }
 
   // async toggleHabit(item: any) {
@@ -33,5 +33,7 @@ export default class Habits extends Observable {
 
   // findDayDetails() {}
 
-  // findAll() {}
+  findAll(): Habit[] {
+    return this.items;
+  }
 }
