@@ -16,7 +16,7 @@ export interface DayDetails {
 
 export interface HabitsRepository {
   findAll(): Promise<Habit[]>;
-  create(habitData: Habit): Promise<string>;
+  create(habitData: Habit): Promise<any>;
   findDayDetails(date: string): Promise<DayDetails>;
   toggleHabit(id: string): Promise<void>;
   summary(): Promise<unknown>;
