@@ -1,5 +1,6 @@
 import { HabitDay } from '@components/HabitDay';
 import { WeekDays } from '@components/WeekDay';
+import { Habit } from '@gateways/HabitGateway';
 import { GenerateDateFromYearBeginning } from '@presentation/utils/generateDateFromYearBeginning/generate-date-from-year-beginning';
 
 const generateDateFromYearBeginning = new GenerateDateFromYearBeginning();
@@ -9,7 +10,8 @@ const mininumSummaryDatesSize = 18 * 7;
 const amountOfDaysToFill = mininumSummaryDatesSize - summaryDates.length;
 const weekDays = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'];
 
-export const SummaryTable = () => {
+export const SummaryTable = (habitItems: Habit[]) => {
+  console.log(habitItems);
   return (
     <div className="w-full flex">
       <WeekDays weekDays={weekDays} />

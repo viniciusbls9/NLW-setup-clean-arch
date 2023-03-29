@@ -2,7 +2,7 @@ import { Habit } from '@gateways/HabitGateway';
 import Observable from './Observable';
 
 export default class Habits extends Observable {
-  items: any;
+  items: Habit[];
 
   constructor(items?: any) {
     super();
